@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package tages_service.images.v1;
+
+option go_package = "github.com/GermanBogatov/tages_contracts/gen/go/tages_service/images/v1;pb_tages_service_images";
+
+import "tages_service/images/v1/image.proto";
+
+service TagesService{
+  rpc CreateImage(CreateImageRequest) returns (CreateImageResponse){}
+  rpc ViewAllImage(ViewAllImageRequest) returns (ViewAllImageResponse){}
+}
+
+message CreateImageRequest{
+  string name = 1;
+  bytes image = 2;
+}
+
+message CreateImageResponse{
+  string done = 1;
+}
+
+message ViewAllImageRequest{
+}
+
+message ViewAllImageResponse{
+  repeated Image images = 1;
+}
+
