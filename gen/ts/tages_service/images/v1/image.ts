@@ -16,9 +16,9 @@ import { MessageType } from "@protobuf-ts/runtime";
  */
 export interface Image {
     /**
-     * @generated from protobuf field: string int = 1;
+     * @generated from protobuf field: string id = 1;
      */
-    int: string;
+    id: string;
     /**
      * @generated from protobuf field: string name = 2;
      */
@@ -44,7 +44,7 @@ export interface Image {
 class Image$Type extends MessageType<Image> {
     constructor() {
         super("tages_service.images.v1.Image", [
-            { no: 1, name: "int", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "size", kind: "scalar", T: 4 /*ScalarType.UINT64*/ },
             { no: 4, name: "image_bytes", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
@@ -53,7 +53,7 @@ class Image$Type extends MessageType<Image> {
         ]);
     }
     create(value?: PartialMessage<Image>): Image {
-        const message = { int: "", name: "", size: "0", imageBytes: new Uint8Array(0), createAt: "0", updatedAt: "0" };
+        const message = { id: "", name: "", size: "0", imageBytes: new Uint8Array(0), createAt: "0", updatedAt: "0" };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Image>(this, message, value);
@@ -64,8 +64,8 @@ class Image$Type extends MessageType<Image> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string int */ 1:
-                    message.int = reader.string();
+                case /* string id */ 1:
+                    message.id = reader.string();
                     break;
                 case /* string name */ 2:
                     message.name = reader.string();
@@ -94,9 +94,9 @@ class Image$Type extends MessageType<Image> {
         return message;
     }
     internalBinaryWrite(message: Image, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string int = 1; */
-        if (message.int !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.int);
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
         /* string name = 2; */
         if (message.name !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.name);
