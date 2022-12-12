@@ -32,9 +32,9 @@ export interface Image {
      */
     imageBytes: Uint8Array;
     /**
-     * @generated from protobuf field: int64 create_at = 5;
+     * @generated from protobuf field: int64 created_at = 5;
      */
-    createAt: string;
+    createdAt: string;
     /**
      * @generated from protobuf field: int64 updated_at = 6;
      */
@@ -48,12 +48,12 @@ class Image$Type extends MessageType<Image> {
             { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "size", kind: "scalar", T: 4 /*ScalarType.UINT64*/ },
             { no: 4, name: "image_bytes", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 5, name: "create_at", kind: "scalar", T: 3 /*ScalarType.INT64*/ },
+            { no: 5, name: "created_at", kind: "scalar", T: 3 /*ScalarType.INT64*/ },
             { no: 6, name: "updated_at", kind: "scalar", T: 3 /*ScalarType.INT64*/ }
         ]);
     }
     create(value?: PartialMessage<Image>): Image {
-        const message = { id: "", name: "", size: "0", imageBytes: new Uint8Array(0), createAt: "0", updatedAt: "0" };
+        const message = { id: "", name: "", size: "0", imageBytes: new Uint8Array(0), createdAt: "0", updatedAt: "0" };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Image>(this, message, value);
@@ -76,8 +76,8 @@ class Image$Type extends MessageType<Image> {
                 case /* bytes image_bytes */ 4:
                     message.imageBytes = reader.bytes();
                     break;
-                case /* int64 create_at */ 5:
-                    message.createAt = reader.int64().toString();
+                case /* int64 created_at */ 5:
+                    message.createdAt = reader.int64().toString();
                     break;
                 case /* int64 updated_at */ 6:
                     message.updatedAt = reader.int64().toString();
@@ -106,9 +106,9 @@ class Image$Type extends MessageType<Image> {
         /* bytes image_bytes = 4; */
         if (message.imageBytes.length)
             writer.tag(4, WireType.LengthDelimited).bytes(message.imageBytes);
-        /* int64 create_at = 5; */
-        if (message.createAt !== "0")
-            writer.tag(5, WireType.Varint).int64(message.createAt);
+        /* int64 created_at = 5; */
+        if (message.createdAt !== "0")
+            writer.tag(5, WireType.Varint).int64(message.createdAt);
         /* int64 updated_at = 6; */
         if (message.updatedAt !== "0")
             writer.tag(6, WireType.Varint).int64(message.updatedAt);

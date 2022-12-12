@@ -69,7 +69,7 @@
           "type": "string",
           "format": "byte"
         },
-        "createAt": {
+        "createdAt": {
           "type": "string",
           "format": "int64"
         },
