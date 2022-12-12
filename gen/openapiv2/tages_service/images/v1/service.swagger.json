@@ -55,6 +55,9 @@
     "v1Image": {
       "type": "object",
       "properties": {
+        "int": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },

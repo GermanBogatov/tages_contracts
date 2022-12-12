@@ -11,35 +11,32 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
-// ID        string     `mapstructure:"id"`
-// 	Name      string     `mapstructure:"name"`
-// 	Size      uint64     `mapstructure:"size"`
-// 	Bytes     []byte     `mapstructure:"bytes"`
-// 	CreatedAt time.Time  `mapstructure:"created_at"`
-// 	UpdatedAt *time.Time `mapstructure:"updated_at"`
-
 /**
  * @generated from protobuf message tages_service.images.v1.Image
  */
 export interface Image {
     /**
-     * @generated from protobuf field: string name = 1;
+     * @generated from protobuf field: string int = 1;
+     */
+    int: string;
+    /**
+     * @generated from protobuf field: string name = 2;
      */
     name: string;
     /**
-     * @generated from protobuf field: uint64 size = 2;
+     * @generated from protobuf field: uint64 size = 3;
      */
     size: string;
     /**
-     * @generated from protobuf field: bytes image_bytes = 3;
+     * @generated from protobuf field: bytes image_bytes = 4;
      */
     imageBytes: Uint8Array;
     /**
-     * @generated from protobuf field: int64 create_at = 4;
+     * @generated from protobuf field: int64 create_at = 5;
      */
     createAt: string;
     /**
-     * @generated from protobuf field: int64 updated_at = 5;
+     * @generated from protobuf field: int64 updated_at = 6;
      */
     updatedAt: string;
 }
@@ -47,15 +44,16 @@ export interface Image {
 class Image$Type extends MessageType<Image> {
     constructor() {
         super("tages_service.images.v1.Image", [
-            { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "size", kind: "scalar", T: 4 /*ScalarType.UINT64*/ },
-            { no: 3, name: "image_bytes", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
-            { no: 4, name: "create_at", kind: "scalar", T: 3 /*ScalarType.INT64*/ },
-            { no: 5, name: "updated_at", kind: "scalar", T: 3 /*ScalarType.INT64*/ }
+            { no: 1, name: "int", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "size", kind: "scalar", T: 4 /*ScalarType.UINT64*/ },
+            { no: 4, name: "image_bytes", kind: "scalar", T: 12 /*ScalarType.BYTES*/ },
+            { no: 5, name: "create_at", kind: "scalar", T: 3 /*ScalarType.INT64*/ },
+            { no: 6, name: "updated_at", kind: "scalar", T: 3 /*ScalarType.INT64*/ }
         ]);
     }
     create(value?: PartialMessage<Image>): Image {
-        const message = { name: "", size: "0", imageBytes: new Uint8Array(0), createAt: "0", updatedAt: "0" };
+        const message = { int: "", name: "", size: "0", imageBytes: new Uint8Array(0), createAt: "0", updatedAt: "0" };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<Image>(this, message, value);
@@ -66,19 +64,22 @@ class Image$Type extends MessageType<Image> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string name */ 1:
+                case /* string int */ 1:
+                    message.int = reader.string();
+                    break;
+                case /* string name */ 2:
                     message.name = reader.string();
                     break;
-                case /* uint64 size */ 2:
+                case /* uint64 size */ 3:
                     message.size = reader.uint64().toString();
                     break;
-                case /* bytes image_bytes */ 3:
+                case /* bytes image_bytes */ 4:
                     message.imageBytes = reader.bytes();
                     break;
-                case /* int64 create_at */ 4:
+                case /* int64 create_at */ 5:
                     message.createAt = reader.int64().toString();
                     break;
-                case /* int64 updated_at */ 5:
+                case /* int64 updated_at */ 6:
                     message.updatedAt = reader.int64().toString();
                     break;
                 default:
@@ -93,21 +94,24 @@ class Image$Type extends MessageType<Image> {
         return message;
     }
     internalBinaryWrite(message: Image, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string name = 1; */
+        /* string int = 1; */
+        if (message.int !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.int);
+        /* string name = 2; */
         if (message.name !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.name);
-        /* uint64 size = 2; */
+            writer.tag(2, WireType.LengthDelimited).string(message.name);
+        /* uint64 size = 3; */
         if (message.size !== "0")
-            writer.tag(2, WireType.Varint).uint64(message.size);
-        /* bytes image_bytes = 3; */
+            writer.tag(3, WireType.Varint).uint64(message.size);
+        /* bytes image_bytes = 4; */
         if (message.imageBytes.length)
-            writer.tag(3, WireType.LengthDelimited).bytes(message.imageBytes);
-        /* int64 create_at = 4; */
+            writer.tag(4, WireType.LengthDelimited).bytes(message.imageBytes);
+        /* int64 create_at = 5; */
         if (message.createAt !== "0")
-            writer.tag(4, WireType.Varint).int64(message.createAt);
-        /* int64 updated_at = 5; */
+            writer.tag(5, WireType.Varint).int64(message.createAt);
+        /* int64 updated_at = 6; */
         if (message.updatedAt !== "0")
-            writer.tag(5, WireType.Varint).int64(message.updatedAt);
+            writer.tag(6, WireType.Varint).int64(message.updatedAt);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

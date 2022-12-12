@@ -6,11 +6,6 @@ option go_package = "github.com/GermanBogatov/tages_contracts/gen/go/tages_servi
 
 import "tages_service/images/v1/image.proto";
 
-// string image_id = 1;
-//  uint64 size = 2;
-//  bytes image_bytes = 3;
-//  int64 create_at = 4;
-//  int64 updated_at = 5;
 
 service TagesService{
   rpc CreateImage(CreateImageRequest) returns (CreateImageResponse){}

@@ -11,12 +11,6 @@ import type { CreateImageResponse } from "./service";
 import type { CreateImageRequest } from "./service";
 import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
 import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
-// string image_id = 1;
-//  uint64 size = 2;
-//  bytes image_bytes = 3;
-//  int64 create_at = 4;
-//  int64 updated_at = 5;
-
 /**
  * @generated from protobuf service tages_service.images.v1.TagesService
  */
@@ -30,12 +24,6 @@ export interface ITagesServiceClient {
      */
     viewAllImage(input: ViewAllImageRequest, options?: RpcOptions): UnaryCall<ViewAllImageRequest, ViewAllImageResponse>;
 }
-// string image_id = 1;
-//  uint64 size = 2;
-//  bytes image_bytes = 3;
-//  int64 create_at = 4;
-//  int64 updated_at = 5;
-
 /**
  * @generated from protobuf service tages_service.images.v1.TagesService
  */
