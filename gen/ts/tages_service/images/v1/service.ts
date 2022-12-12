@@ -22,18 +22,18 @@ export interface CreateImageRequest {
      */
     name: string;
     /**
-     * @generated from protobuf field: bytes image = 2;
+     * @generated from protobuf field: bytes image_bytes = 2;
      */
-    image: Uint8Array;
+    imageBytes: Uint8Array;
 }
 /**
  * @generated from protobuf message tages_service.images.v1.CreateImageResponse
  */
 export interface CreateImageResponse {
     /**
-     * @generated from protobuf field: string done = 1;
+     * @generated from protobuf field: tages_service.images.v1.Image image = 1;
      */
-    done: string;
+    image?: Image;
 }
 /**
  * @generated from protobuf message tages_service.images.v1.ViewAllImageRequest
@@ -54,11 +54,11 @@ class CreateImageRequest$Type extends MessageType<CreateImageRequest> {
     constructor() {
         super("tages_service.images.v1.CreateImageRequest", [
             { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "image", kind: "scalar", T: 12 /*ScalarType.BYTES*/ }
+            { no: 2, name: "image_bytes", kind: "scalar", T: 12 /*ScalarType.BYTES*/ }
         ]);
     }
     create(value?: PartialMessage<CreateImageRequest>): CreateImageRequest {
-        const message = { name: "", image: new Uint8Array(0) };
+        const message = { name: "", imageBytes: new Uint8Array(0) };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<CreateImageRequest>(this, message, value);
@@ -72,8 +72,8 @@ class CreateImageRequest$Type extends MessageType<CreateImageRequest> {
                 case /* string name */ 1:
                     message.name = reader.string();
                     break;
-                case /* bytes image */ 2:
-                    message.image = reader.bytes();
+                case /* bytes image_bytes */ 2:
+                    message.imageBytes = reader.bytes();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -90,9 +90,9 @@ class CreateImageRequest$Type extends MessageType<CreateImageRequest> {
         /* string name = 1; */
         if (message.name !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.name);
-        /* bytes image = 2; */
-        if (message.image.length)
-            writer.tag(2, WireType.LengthDelimited).bytes(message.image);
+        /* bytes image_bytes = 2; */
+        if (message.imageBytes.length)
+            writer.tag(2, WireType.LengthDelimited).bytes(message.imageBytes);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -107,11 +107,11 @@ export const CreateImageRequest = new CreateImageRequest$Type();
 class CreateImageResponse$Type extends MessageType<CreateImageResponse> {
     constructor() {
         super("tages_service.images.v1.CreateImageResponse", [
-            { no: 1, name: "done", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 1, name: "image", kind: "message", T: () => Image }
         ]);
     }
     create(value?: PartialMessage<CreateImageResponse>): CreateImageResponse {
-        const message = { done: "" };
+        const message = {};
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<CreateImageResponse>(this, message, value);
@@ -122,8 +122,8 @@ class CreateImageResponse$Type extends MessageType<CreateImageResponse> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string done */ 1:
-                    message.done = reader.string();
+                case /* tages_service.images.v1.Image image */ 1:
+                    message.image = Image.internalBinaryRead(reader, reader.uint32(), options, message.image);
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -137,9 +137,9 @@ class CreateImageResponse$Type extends MessageType<CreateImageResponse> {
         return message;
     }
     internalBinaryWrite(message: CreateImageResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string done = 1; */
-        if (message.done !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.done);
+        /* tages_service.images.v1.Image image = 1; */
+        if (message.image)
+            Image.internalBinaryWrite(message.image, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

@@ -47,8 +47,8 @@
     "v1CreateImageResponse": {
       "type": "object",
       "properties": {
-        "done": {
-          "type": "string"
+        "image": {
+          "$ref": "#/definitions/v1Image"
         }
       }
     },
@@ -58,7 +58,11 @@
         "name": {
           "type": "string"
         },
-        "image": {
+        "size": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "imageBytes": {
           "type": "string",
           "format": "byte"
         },

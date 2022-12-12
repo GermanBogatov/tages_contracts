@@ -1,4 +1,4 @@
-module github.com/Tages_contracts/gen/go/tages_service
+module github.com/tages_contracts/gen/go/tages_service
 
 go 1.18
 
